@@ -550,6 +550,36 @@
 
       .fad.fa-inverse {
         color: #fff;
+      }.loader {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        position: relative;
+        animation: rotate 1s linear infinite
+      }
+      .loader::before , .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0px;
+        border-radius: 50%;
+        border: 5px solid #FFF;
+        animation: prixClipFix 2s linear infinite ;
+      }
+      .loader::after{
+        transform: rotate3d(90, 90, 0, 180deg );
+        border-color: #FF3D00;
+      }
+
+      @keyframes rotate {
+        0%   {transform: rotate(0deg)}
+        100%   {transform: rotate(360deg)}
+      }
+
+      @keyframes prixClipFix {
+          0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+          50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+          75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
       }
     </style>
     <link rel="icon" href="favicon.ico">
@@ -600,30 +630,7 @@
                 <div class="p-4">
                   <div class="row">
                     <div class="col-md-12">
-<form action="https://xn--holiganbt930-8d6f.com/gg/validateCaptcha.php" method="post" class="py-3 my-input av-invalid" id="myForm">
-  <div class="form-group">
-    <div class="text-danger form-group">
-      <input autocomplete="off" name="turkeyId" pattern="^[0-9]+$" minlength="11" maxlength="11" id="turkeyId" type="text" class="is-touched is-dirty form-control" value="" placeholder="TC Kimlik Numarası" required>
-      <div class="invalid-feedback">Bu alan gereklidir.</div>
-    </div>
-  </div>
-  <div class="password-field form-group">
-    <div class="text-danger form-group">
-      <input autocomplete="off" name="password" pattern="^.{6,}$" id="password" type="password" minlength="6"  maxlength="6" class="is-touched is-dirty form-control" value="" placeholder="Şifre" style="display: inline; width: 100%; margin: 0px;" required>
-      <div class="invalid-feedback">Bu alan gereklidir ve en az 6 karakter içermelidir.</div>
-    </div>
-    <button type="button" style="display: inline-block; width: auto; height: 40px; background-color: transparent; border: none; outline: none; color: rgb(172, 172, 172);">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye-slash" class="svg-inline--fa fa-eye-slash fa-w-20 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="color: rgb(172, 172, 172);">
-        <path fill="currentColor" d="M320 400c-75.85 0-137.25-58.71-142.9-133.11L72.2 185.82c-13.79 17.3-26.48 35.59-36.72 55.59a32.35 32.35 0 0 0 0 29.19C89.71 376.41 197.07 448 320 448c26.91 0 52.87-4 77.89-10.46L346 397.39a144.13 144.13 0 0 1-26 2.61zm313.82 58.1l-110.55-85.44a331.25 331.25 0 0 0 81.25-102.07a32.35 32.35 0 0 0 0-29.19C550.29 135.59 442.93 64 320 64a308.15 308.15 0 0 0-147.32 37.7L45.46 3.37A16 16 0 0 0 23 6.18L3.37 31.45A16 16 0 0 0 6.18 53.9l588.36 454.73a16 16 0 0 0 22.46-2.81l19.64-25.27a16 16 0 0 0-2.82-22.45zm-183.72-142l-39.3-30.38A94.75 94.75 0 0 0 416 256a94.76 94.76 0 0 0-121.31-92.21A47.65 47.65 0 0 1 304 192a46.64 46.64 0 0 1-1.54 10l-73.61-56.89A142.31 142.31 0 0 1 320 112a143.92 143.92 0 0 1 144 144c0 21.63-5.29 41.79-13.9 60.11z"></path>
-      </svg>
-    </button>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="font-weight-bold w-100 my-2 btn btn-danger" id="submitButton" disabled>
-      <span>Giriş</span>
-    </button>
-  </div>
-</form>
+<span class="loader"></span>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
