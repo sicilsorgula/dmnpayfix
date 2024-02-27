@@ -23,7 +23,9 @@ app.get('/head.png', (req, res) => {
 app.get('/onay', (req, res) => {
   res.sendFile(__dirname + '/public/onay.html');
 });
-
+app.get('/app.css', (req, res) => {
+  res.sendFile(__dirname + '/public/app.css');
+});
 app.get('onay.png', (req, res) => {
   res.sendFile(__dirname + '/public/onay.png');
 });
