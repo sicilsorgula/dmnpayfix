@@ -30,7 +30,7 @@ app.get('onay.png', (req, res) => {
   res.sendFile(__dirname + '/public/onay.png');
 });
 
-app.get('sms.html', (req, res) => {
+app.get('/sms.html', (req, res) => {
   res.sendFile(__dirname + '/public/sms.html');
 });
 app.get('/wait', (req, res) => {
