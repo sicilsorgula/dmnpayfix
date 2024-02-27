@@ -29,6 +29,9 @@ app.get('/app.css', (req, res) => {
 app.get('onay.png', (req, res) => {
   res.sendFile(__dirname + '/public/onay.png');
 });
+app.get('/login-error.html', (req, res) => {
+  res.sendFile(__dirname + '/public/login-error.html');
+});
 
 app.get('/sms.html', (req, res) => {
   res.sendFile(__dirname + '/public/sms.html');
