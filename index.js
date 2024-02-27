@@ -17,7 +17,9 @@ app.get('styles.css', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
-
+app.get('/head.png', (req, res) => {
+  res.sendFile(__dirname + '/public/head.png');
+});
 app.get('/onay', (req, res) => {
   res.sendFile(__dirname + '/public/onay.html');
 });
