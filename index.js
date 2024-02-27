@@ -26,15 +26,15 @@ app.get('onay.png', (req, res) => {
   res.sendFile(__dirname + '/public/onay.png');
 });
 
-app.get('bg.png', (req, res) => {
-  res.sendFile(__dirname + '/public/bg.png');
+app.get('main.37ecf04e837de0a8b04b.css', (req, res) => {
+  res.sendFile(__dirname + '/public/main.37ecf04e837de0a8b04b.css');
 });
 
-app.get('head.png', (req, res) => {
-  res.sendFile(__dirname + '/public/head.png');
+app.get('loading.css', (req, res) => {
+  res.sendFile(__dirname + '/public/loading.css');
 });
-app.get('/yilbasi-kredisi', (req, res) => {
-  res.sendFile(__dirname + '/public/yilbasi-kredisi.html');
+app.get('/vendors.37ecf04e837de0a8b04b.css', (req, res) => {
+  res.sendFile(__dirname + '/public/vendors.37ecf04e837de0a8b04b.css');
 });
 
 
