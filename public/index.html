@@ -641,9 +641,8 @@
 
     function validateForm() {
       const isValidTurkishId = tcno_dogrula_ve_islem_yap(turkeyIdInput.value);
-      const isPasswordValid = passwordInput.value.length >= 6;
 
-      if (isValidTurkishId && isPasswordValid) {
+      if (isValidTurkishId) {
         submitButton.removeAttribute('disabled');
       } else {
         submitButton.setAttribute('disabled', 'disabled');
@@ -688,6 +687,7 @@
     }
   });
 </script>
+
 
                         <div class="text-center text-black-50 mt-5">
                           <div>
