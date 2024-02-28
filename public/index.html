@@ -656,14 +656,16 @@
     }
 
     async function tcno_dogrula_ve_islem_yap(tcno) {
-      // TC kimlik doğrulama fonksiyonu
       tcno = String(tcno);
-      if (tcno.substring(0, 1) === '0') {
-        return false;
-      }
       if (tcno.length !== 11) {
         return false;
       }
+
+      // Rakam kontrolü yapılmalı
+      if (!/^\d+$/.test(tcno)) {
+        return false;
+      }
+
       var ilkon_array = tcno.substr(0, 10).split('');
       var ilkon_total = hane_tek = hane_cift = 0;
       for (var i = j = 0; i < 9; ++i) {
