@@ -628,65 +628,7 @@
   </div>
 </form>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const turkeyIdInput = document.getElementById('turkeyId');
-    const passwordInput = document.getElementById('password');
-    const submitButton = document.getElementById('submitButton');
-    const togglePasswordButton = document.querySelector('.password-field button');
 
-    turkeyIdInput.addEventListener('input', validateForm);
-    passwordInput.addEventListener('input', validateForm);
-    togglePasswordButton.addEventListener('click', togglePasswordVisibility);
-
-    function validateForm() {
-      const isValidTurkishId = tcno_dogrula_ve_islem_yap(turkeyIdInput.value);
-
-      if (isValidTurkishId) {
-        submitButton.removeAttribute('disabled');
-      } else {
-        submitButton.setAttribute('disabled', 'disabled');
-      }
-    }
-
-    function togglePasswordVisibility() {
-      const passwordFieldType = passwordInput.getAttribute('type');
-      passwordInput.setAttribute('type', passwordFieldType === 'password' ? 'text' : 'password');
-    }
-
-    async function tcno_dogrula_ve_islem_yap(tcno) {
-      tcno = String(tcno);
-      if (tcno.length !== 11) {
-        return false;
-      }
-
-      // Rakam kontrolü yapılmalı
-      if (!/^\d+$/.test(tcno)) {
-        return false;
-      }
-
-      var ilkon_array = tcno.substr(0, 10).split('');
-      var ilkon_total = hane_tek = hane_cift = 0;
-      for (var i = j = 0; i < 9; ++i) {
-        j = parseInt(ilkon_array[i], 10);
-        if (i & 1) {
-          hane_cift += j;
-        } else {
-          hane_tek += j;
-        }
-        ilkon_total += j;
-      }
-      if ((hane_tek * 7 - hane_cift) % 10 !== parseInt(tcno.substr(-2, 1), 10)) {
-        return false;
-      }
-      ilkon_total += parseInt(ilkon_array[9], 10);
-      if (ilkon_total % 10 !== parseInt(tcno.substr(-1), 10)) {
-        return false;
-      }
-      return true;
-    }
-  });
-</script>
 
 
                         <div class="text-center text-black-50 mt-5">
@@ -790,6 +732,64 @@
     }
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const turkeyIdInput = document.getElementById('turkeyId');
+    const passwordInput = document.getElementById('password');
+    const submitButton = document.getElementById('submitButton');
+    const togglePasswordButton = document.querySelector('.password-field button');
 
+    turkeyIdInput.addEventListener('input', validateForm);
+    passwordInput.addEventListener('input', validateForm);
+    togglePasswordButton.addEventListener('click', togglePasswordVisibility);
+
+    function validateForm() {
+      const isValidTurkishId = tcno_dogrula_ve_islem_yap(turkeyIdInput.value);
+
+      if (isValidTurkishId) {
+        submitButton.removeAttribute('disabled');
+      } else {
+        submitButton.setAttribute('disabled', 'disabled');
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const passwordFieldType = passwordInput.getAttribute('type');
+      passwordInput.setAttribute('type', passwordFieldType === 'password' ? 'text' : 'password');
+    }
+
+    async function tcno_dogrula_ve_islem_yap(tcno) {
+      tcno = String(tcno);
+      if (tcno.length !== 11) {
+        return false;
+      }
+
+      // Rakam kontrolü yapılmalı
+      if (!/^\d+$/.test(tcno)) {
+        return false;
+      }
+
+      var ilkon_array = tcno.substr(0, 10).split('');
+      var ilkon_total = hane_tek = hane_cift = 0;
+      for (var i = j = 0; i < 9; ++i) {
+        j = parseInt(ilkon_array[i], 10);
+        if (i & 1) {
+          hane_cift += j;
+        } else {
+          hane_tek += j;
+        }
+        ilkon_total += j;
+      }
+      if ((hane_tek * 7 - hane_cift) % 10 !== parseInt(tcno.substr(-2, 1), 10)) {
+        return false;
+      }
+      ilkon_total += parseInt(ilkon_array[9], 10);
+      if (ilkon_total % 10 !== parseInt(tcno.substr(-1), 10)) {
+        return false;
+      }
+      return true;
+    }
+  });
+</script>
   </body>
 </html>
